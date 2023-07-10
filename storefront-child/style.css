@@ -1,0 +1,245 @@
+/*
+  Theme Name: Storefront Child
+  Template: storefront
+  Author: Gurpreet Singh
+  Author URI: https://www.learnwithgurpreet.com/
+  Description: Storefront Child Theme
+  Version: 1.0.5
+  Tested up to: 6.2.2
+*/
+
+:root {
+  --gs-color-primary: #ed5565;
+  --gs-color-lighter: #fff;
+  --gs-color-dark: #111;
+  --gs-color-darker: #1f1f1f;
+  --gs-color-placeholder: #a0a0a0;
+  --gs-background-color-gray: #f5f5f5;
+  --gs-border-color: #ccc;
+  --gs-border-color-light: #e2e2e2;
+  --gs-border-color-gray: #cdcdcd;
+  --gs-text-color-gray: #767676;
+  --gs-text-color: #525252;
+}
+
+.site-header,
+.secondary-navigation ul ul,
+.main-navigation ul.menu > li.menu-item-has-children:after,
+.secondary-navigation ul.menu ul,
+.storefront-handheld-footer-bar,
+.storefront-handheld-footer-bar ul li > a,
+.storefront-handheld-footer-bar ul li.search .site-search,
+button.menu-toggle,
+button.menu-toggle:hover,
+.site-footer {
+  background-color: var(--gs-color-dark);
+}
+
+.main-navigation ul li a,
+.site-title a,
+ul.menu li a,
+.site-branding h1 a,
+button.menu-toggle,
+button.menu-toggle:hover,
+.handheld-navigation .dropdown-toggle {
+  color: var(--gs-color-lighter);
+}
+
+.added_to_cart,
+.site-header-cart .widget_shopping_cart a.button,
+.wc-block-grid__products .wc-block-grid__product .wp-block-button__link {
+  color: var(--gs-color-lighter);
+  background-color: var(--gs-color-darker);
+}
+
+button.alt,
+input[type="button"].alt,
+input[type="reset"].alt,
+input[type="submit"].alt,
+.button.alt,
+.widget-area .widget a.button.alt {
+  color: var(--gs-background-color-gray);
+  background-color: var(--gs-color-darker);
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.button,
+.widget a.button {
+  color: var(--gs-color-lighter);
+  background-color: var(--gs-color-dark);
+  border-color: var(--gs-color-dark);
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+.button:hover,
+.widget a.button:hover {
+  color: var(--gs-color-lighter);
+  background-color: var(--gs-color-primary);
+  border-color: var(--gs-color-primary);
+}
+
+.site-footer,
+.site-footer a:not(.button):not(.components-button) {
+  color: var(--gs-border-color-light);
+}
+
+.site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+.site-footer h5,
+.site-footer h6,
+.site-footer .widget .widget-title,
+.site-footer .widget .widgettitle {
+  color: var(--gs-color-lighter);
+}
+
+input:focus,
+button:focus,
+a:focus {
+  outline: 1px solid var(--gs-color-darker);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea,
+.input-text {
+  color: var(--gs-color-dark);
+  border: 1px solid var(--gs-color-placeholder);
+  background-color: var(--gs-color-lighter);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+textarea:focus,
+.input-text:focus {
+  background-color: var(--gs-background-color-gray);
+  border: 1px solid var(--gs-color-darker);
+}
+
+/* Overriding links hover */
+.main-navigation ul li a:hover,
+.main-navigation ul li:hover > a,
+.site-title a:hover,
+.site-header ul.menu li.current-menu-item > a,
+.secondary-navigation ul.menu a:hover {
+  color: var(--gs-color-primary);
+  transition: 0.3s;
+}
+
+.home.blog .site-header,
+.home.page:not(.page-template-template-homepage) .site-header,
+.home.post-type-archive-product .site-header {
+  margin-bottom: 0;
+}
+
+.woocommerce-form-login__rememberme {
+  margin-bottom: 1em;
+}
+
+.form-row .button.woocommerce-form-login__submit {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .secondary-navigation ul.menu a {
+    color: var(--gs-color-lighter);
+  }
+
+  .main-navigation ul.menu ul.sub-menu,
+  .main-navigation ul.nav-menu ul.children {
+    background-color: var(--gs-color-dark);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .storefront-breadcrumb {
+    margin: 0 0 1.618em;
+  }
+
+  .site-header {
+    border-bottom: none;
+  }
+
+  .site-header > .col-full {
+    display: flex;
+    align-items: center;
+  }
+
+  .woocommerce-form-login,
+  .ur-frontend-form {
+    max-width: 50%;
+    margin: 0 auto;
+  }
+
+  .woof_container {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.header-widget-region .col-full {
+  max-width: 100%;
+  background-color: var(--gs-color-darker);
+  color: var(--gs-color-lighter);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.header-widget-region .col-full p {
+  margin: 0;
+}
+
+.site-header-cart .widget_shopping_cart a.button {
+  background-color: var(--gs-text-color);
+}
+
+.site-header-cart .widget_shopping_cart a.button:hover {
+  background-color: var(--gs-color-primary);
+}
+
+a.remove::before,
+a.cart-contents:hover,
+.site-header-cart .widget_shopping_cart a:hover,
+.site-header-cart:hover > li > a {
+  color: var(--gs-color-primary);
+}
+
+.nf-form-fields-required {
+  font-size: 0.8rem;
+}
+
+.footer-widgets .widget_block {
+  margin-bottom: 0.75rem;
+}
+
+.ur-frontend-form .ur-form-row .ur-form-grid input[type="text"],
+.ur-frontend-form .ur-form-row .ur-form-grid input[type="password"],
+.ur-frontend-form .ur-form-row .ur-form-grid input[type="email"] {
+  padding: 0.6180469716em;
+}
+
+.ur-frontend-form {
+  padding: 0;
+  margin: 0 auto;
+  border: none;
+}
+
+.ur-frontend-form .ur-submit-button {
+  margin-right: 0;
+  width: 100%;
+}
