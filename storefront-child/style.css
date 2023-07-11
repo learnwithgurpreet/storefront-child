@@ -29,8 +29,6 @@
 .storefront-handheld-footer-bar,
 .storefront-handheld-footer-bar ul li > a,
 .storefront-handheld-footer-bar ul li.search .site-search,
-button.menu-toggle,
-button.menu-toggle:hover,
 .site-footer {
   background-color: var(--gs-color-dark);
 }
@@ -43,6 +41,14 @@ button.menu-toggle,
 button.menu-toggle:hover,
 .handheld-navigation .dropdown-toggle {
   color: var(--gs-color-lighter);
+}
+
+button.menu-toggle:after, button.menu-toggle:before, button.menu-toggle span:before {
+  background-color: var(--gs-color-lighter);
+}
+
+button.menu-toggle {
+  border-color: var(--gs-color-lighter);
 }
 
 .added_to_cart,

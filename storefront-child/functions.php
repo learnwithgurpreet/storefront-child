@@ -4,5 +4,4 @@ function storefront_child_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'storefront_child_enqueue_styles' );
 
-
 ?>
