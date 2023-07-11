@@ -8,8 +8,8 @@ function storefront_child_check_for_updates() {
   $theme = wp_get_theme();
   $theme_name = $theme->get('Name');
   $theme_version = $theme->get('Version');
-  $theme_update_uri = $theme->get('UpdateURI');
-  $update_url = 'https://learnwithgurpreet.github.io/'.$theme_update_uri.'/update.json'; // Replace with your custom update API URL
+  $theme_text_domain = $theme->get('TextDomain');
+  $update_url = 'https://learnwithgurpreet.github.io/'.$theme_text_domain.'/update.json'; // Replace with your custom update API URL
 
   // Make the request to the update API
   $request = wp_remote_get($update_url, array(
@@ -35,7 +35,7 @@ function storefront_child_check_for_updates() {
             $new_version,
             $download_link
           );
-            echo '<div class="notice notice-info"><p>' . $update_message . '</p></div>';
+            echo '<div class="notice notice-success is-dismissible"><p>' . $update_message . '</p></div>';
           });
         }
       }
