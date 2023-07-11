@@ -4,7 +4,7 @@
   Author: Gurpreet Singh
   Author URI: https://www.learnwithgurpreet.com/
   Description: Storefront Child Theme
-  Version: 1.0.6
+  Version: 1.0.7
   Tested up to: 6.2.2
   Update URI: storefront-child
 */
@@ -38,14 +38,8 @@
 .site-title a,
 ul.menu li a,
 .site-branding h1 a,
-button.menu-toggle,
-button.menu-toggle:hover,
 .handheld-navigation .dropdown-toggle {
   color: var(--gs-color-lighter);
-}
-
-button.menu-toggle:after, button.menu-toggle:before, button.menu-toggle span:before {
-  background-color: var(--gs-color-lighter);
 }
 
 button.menu-toggle {
