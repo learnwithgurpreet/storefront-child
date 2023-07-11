@@ -4,6 +4,23 @@ function storefront_child_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'storefront_child_enqueue_styles' );
 
+if ( ! function_exists( 'storefront_credit' ) ) {
+	/**
+	 * Display the theme credit
+	 *
+	 * @since  1.0.0
+	 * @return void
+	 */
+	/* Display custom WooCommerce shop credit message */
+	function storefront_credit() {
+       ?>
+       <div class="site-info has-text-align-center">
+		   <?php echo esc_html( apply_filters( 'storefront_copyright_text', $content = '&copy; '. get_bloginfo( 'name' ) .' ' . date( 'Y' ) ) ); ?>
+       </div><!-- .site-info -->
+     <?php 
+	}
+}
+
 function storefront_child_check_for_updates() {
   $theme = wp_get_theme();
   $theme_name = $theme->get('Name');
