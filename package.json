@@ -1,0 +1,25 @@
+{
+  "name": "storefront-child",
+  "version": "1.1.0",
+  "description": "This theme is dependent on the Official [Storefront](https://wordpress.org/themes/storefront/) theme from WordPress and works as a child theme. Please install need to have Storefront theme in order to use the storefront-child theme.",
+  "template": "storefront",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build && gulp zip"
+  },
+  "keywords": [],
+  "author": "Gurpreet Singh",
+  "authoruri": "https://www.learnwithgurpreet.com/",
+  "textDomain": "storefront-child",
+  "license": "ISC",
+  "devDependencies": {
+    "fs": "^0.0.1-security",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-footer": "^2.1.0",
+    "gulp-header": "^2.0.9",
+    "gulp-strip-css-comments": "^2.0.0",
+    "gulp-zip": "^5.1.0"
+  }
+}
