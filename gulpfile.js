@@ -15,7 +15,7 @@ const pkg = JSON.parse(fs.readFileSync("./package.json"));
 function css() {
   const cssbanner = [
     "/*",
-    "Theme Name:          " + pkg.name,
+    "Theme Name:          " + pkg.theme_name,
     "Description:         " + pkg.description,
     "Template:            " + pkg.template,
     "Author:              " + pkg.author,

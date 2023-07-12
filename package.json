@@ -7,6 +7,7 @@
   "scripts": {
     "build": "gulp build && gulp zip"
   },
+  "theme_name": "Storefront Child",
   "keywords": [],
   "author": "Gurpreet Singh",
   "authoruri": "https://www.learnwithgurpreet.com/",
