@@ -21,7 +21,15 @@ if ( ! function_exists( 'storefront_credit' ) ) {
 	}
 }
 
-function storefront_child_check_for_updates() {
+if ( is_admin() ) {
+  add_filter('pre_set_site_transient_update_themes', 'storefront_child_check_for_updates');
+}
+
+function storefront_child_check_for_updates($transient) {
+  if ( empty( $transient->checked ) ) {
+    return $transient;
+  }
+
   $theme = wp_get_theme();
   $theme_name = $theme->get('Name');
   $theme_version = $theme->get('Version');
@@ -44,20 +52,28 @@ function storefront_child_check_for_updates() {
       $download_link = $response['download_link'];
       $new_version = $response['new_version'];
 
-      if($new_version !== $theme_version) {
-        // Display update notification in the admin dashboard
-        add_action('admin_notices', function() use ($download_link, $new_version) {
-          $update_message = sprintf(
-            'A new version (%s) of the theme is available. <a href="%s">Click here</a> to update.',
-            $new_version,
-            $download_link
+      if ( version_compare( $theme_version, $new_version, '<' ) ) {
+        if ( version_compare( $theme_version, $new_version, '<' ) ) {
+          $transient->response[$theme_text_domain] = array(
+            'url' => $download_link,
+            'new_version' => $new_version,
+            'slug' => $theme_text_domain,
+            'package' => $download_link
           );
-            echo '<div class="notice notice-success is-dismissible"><p>' . $update_message . '</p></div>';
-          });
         }
       }
     }
+  }
+
+  return $transient;
 }
-add_action('admin_init', 'storefront_child_check_for_updates');
+
+add_filter('auto_update_theme', 'enable_child_theme_auto_updates', 10, 2);
+function enable_child_theme_auto_updates($update, $item) {
+  if (isset($item->theme) && $item->theme === 'storefront-child') {
+    return true; // Enable auto-updates for the child theme
+  }
+  return $update;
+}
 
 ?>
