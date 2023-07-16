@@ -57,8 +57,7 @@ function copy() {
 
 async function writeUpdate() {
   const contents = {
-    download_link:
-      "https://learnwithgurpreet.github.io/storefront-child/storefront-child.zip",
+    download_link: `https://learnwithgurpreet.github.io/storefront-child/storefront-child.${pkg.version}.zip`,
     new_version: pkg.version,
   };
   const jsonString = JSON.stringify(contents);
@@ -68,7 +67,7 @@ async function writeUpdate() {
 gulp.task("zip", () =>
   gulp
     .src("./storefront-child/**/*")
-    .pipe(zip("storefront-child.zip"))
+    .pipe(zip(`storefront-child.${pkg.version}.zip`))
     .pipe(gulp.dest("./"))
 );
 
