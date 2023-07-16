@@ -17,18 +17,20 @@ function css() {
     "/*",
     "Theme Name:          " + pkg.theme_name,
     "Description:         " + pkg.description,
+    "Theme URI:           " + pkg.theme_uri,
     "Template:            " + pkg.template,
     "Author:              " + pkg.author,
     "Author URI:          " + pkg.authoruri,
     "Version:             " + pkg.version,
     "License:             " + pkg.license,
     "Text Domain:         " + pkg.textDomain,
+    "Requires PHP:        " + pkg.theme_requires_php_version,
     "*/",
     "",
   ].join("\n");
 
   return gulp
-    .src("storefront-child-src/style.css") // Change this to your own stylesheet
+    .src("src/style.css") // Change this to your own stylesheet
     .pipe(stripCssComments({ preserve: false }))
     .pipe(cleanCSS(require("./configs/clean-css.js")))
     .pipe(
@@ -38,21 +40,18 @@ function css() {
     )
     .pipe(footer("\n"))
     .on("error", console.error.bind(console))
-    .pipe(gulp.dest("./storefront-child"));
+    .pipe(gulp.dest("./dist"));
 }
 
 function cleanDestination() {
   return gulp
-    .src("./storefront-child", { read: false, allowEmpty: true })
+    .src("./dist", { read: false, allowEmpty: true })
     .pipe(clean({ force: true }));
 }
 
 function copy() {
-  var files = [
-    "./storefront-child-src/*.*",
-    "!./storefront-child-src/style.css",
-  ];
-  return gulp.src(files).pipe(gulp.dest("./storefront-child/"));
+  var files = ["./src/*.*", "!./src/style.css"];
+  return gulp.src(files).pipe(gulp.dest("./dist/"));
 }
 
 async function writeUpdate() {
@@ -66,7 +65,7 @@ async function writeUpdate() {
 
 gulp.task("zip", () =>
   gulp
-    .src("./storefront-child/**/*")
+    .src("./dist/**/*")
     .pipe(zip(`storefront-child.${pkg.version}.zip`))
     .pipe(gulp.dest("./"))
 );

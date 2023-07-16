@@ -1,4 +1,5 @@
 <?php
+global $pagenow;
 function storefront_child_enqueue_styles() {
   wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 }
@@ -22,6 +23,9 @@ if ( ! function_exists( 'storefront_credit' ) ) {
 }
 
 if ( is_admin() ) {
+  if($pagenow === "themes.php") {
+    set_site_transient('update_themes', null, 10);
+  }
   add_filter('pre_set_site_transient_update_themes', 'storefront_child_check_for_updates');
 }
 
@@ -66,14 +70,6 @@ function storefront_child_check_for_updates($transient) {
   }
 
   return $transient;
-}
-
-add_filter('auto_update_theme', 'enable_child_theme_auto_updates', 10, 2);
-function enable_child_theme_auto_updates($update, $item) {
-  if (isset($item->theme) && $item->theme === 'storefront-child') {
-    return true; // Enable auto-updates for the child theme
-  }
-  return $update;
 }
 
 ?>

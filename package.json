@@ -12,6 +12,8 @@
   "author": "Gurpreet Singh",
   "authoruri": "https://www.learnwithgurpreet.com/",
   "textDomain": "storefront-child",
+  "theme_requires_php_version": "5.6.0",
+  "theme_uri": "https://learnwithgurpreet.github.io/storefront-child/",
   "license": "ISC",
   "devDependencies": {
     "fs": "^0.0.1-security",
